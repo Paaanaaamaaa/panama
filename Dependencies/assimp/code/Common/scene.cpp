@@ -112,8 +112,7 @@ aiScene::~aiScene() {
             delete mCameras[a];
         }
     }
-    delete[] mCameras;if (OvPhysics::Core::PhysicsEngine::IsDispatching())
-	return;
+    delete[] mCameras;
 
     aiMetadata::Dealloc(mMetaData);
 
