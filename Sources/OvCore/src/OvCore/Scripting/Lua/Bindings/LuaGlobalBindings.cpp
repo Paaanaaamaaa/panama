@@ -258,7 +258,9 @@ void BindLuaGlobal(sol::state& p_luaState)
 		},
 		"LockMouse", []() { return OVSERVICE(Window).SetCursorMode(Cursor::ECursorMode::DISABLED); },
 		"UnlockMouse", []() { return OVSERVICE(Window).SetCursorMode(Cursor::ECursorMode::NORMAL); },
-		"SetCursorShape", [](Cursor::ECursorShape p_shape) { OVSERVICE(Window).SetCursorShape(p_shape); }
+		"SetCursorShape", [](Cursor::ECursorShape p_shape) { OVSERVICE(Window).SetCursorShape(p_shape); },
+        "GetTypedText", []() -> std::string { return OVSERVICE(Window).GetTypedText(); },
+        "GetKeyRepeat", [](int p_key) -> bool { return OVSERVICE(Window).GetKeyRepeat(p_key); }
 	);
 
 	p_luaState.create_named_table("Scenes",
